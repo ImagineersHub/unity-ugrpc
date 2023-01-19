@@ -34,6 +34,10 @@ namespace UGrpc.Pipeline.GrpcPipe.V1
 
         protected Dictionary<string, System.Type> mAssembles = new Dictionary<string, System.Type>()
         {
+            {"UGrpc.SystemUtils",typeof(SystemUtils)},
+            {"UGrpc.SceneUtils",typeof(SceneUtils)},
+            {"UGrpc.PrefabUtils",typeof(PrefabUtils)},
+            {"UGrpc.MaterialUtils",typeof(MaterialUtils)},
             {"UnityEngine.Application",typeof(Application)},
             {"UnityEditor.AssetDatabase",typeof(UnityEditor.AssetDatabase)},
             {"UnityEditor.SceneManagement.EditorSceneManager",typeof(UnityEditor.SceneManagement.EditorSceneManager)}
