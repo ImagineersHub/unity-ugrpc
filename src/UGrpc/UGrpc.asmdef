@@ -1,8 +1,8 @@
 {
-    "name": "UGrpc.Editor",
-    "rootNamespace": "UGrpc.Pipeline.GrpcPipe.V1",
+    "name": "UGrpc",
+    "rootNamespace": "",
     "references": [
-        "Cysharp.Threading.Tasks"
+        "UniTask"
     ],
     "includePlatforms": [
         "Editor"

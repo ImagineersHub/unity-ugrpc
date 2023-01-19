@@ -10,6 +10,7 @@ using Cysharp.Threading.Tasks;
 using Google.Protobuf;
 using UnityEditor;
 using UnityEngine;
+
 namespace UGrpc.Pipeline.GrpcPipe.V1
 {
     public class UGrpcPipeImpl : UGrpcPipe.UGrpcPipeBase
@@ -96,7 +97,7 @@ namespace UGrpc.Pipeline.GrpcPipe.V1
         private async Task<object> CommandParserAsync(CommandParserParam cmdParam)
         {
             // Switch to main thread to allow asset manipulation through AssetDatabase
-            await UniTask.SwitchToMainThread();
+            //await UniTask.SwitchToMainThread();
 
             // Parse the module type from the module name (e.g., UnityEditor.AssetDatabase)
             var module = AssemblesMappings.GetValueOrDefault(cmdParam.type, typeof(EditorWindow));

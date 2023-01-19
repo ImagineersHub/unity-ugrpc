@@ -207,22 +207,5 @@ namespace UGrpc.Pipeline.GrpcPipe.V1
                 targetPropInfo.SetValue(targetCompInst, sourceValue);
             }
         }
-
-        public static void CreateMeshColliderObject(string colliderMeshAssetPath, string target, bool addInteractable)
-        {
-            using (var colliderAsset = new PrefabFeeder(target))
-            {
-                var colliderMeshAsset = AssetDatabase.LoadAssetAtPath(colliderMeshAssetPath, typeof(GameObject)) as GameObject;
-                var mesh = colliderMeshAsset.GetComponent<MeshFilter>().sharedMesh;
-                var meshCollider = colliderAsset.Instance.AddComponent<MeshCollider>();
-                meshCollider.sharedMesh = mesh;
-                meshCollider.convex = true;
-
-                if (addInteractable)
-                {
-                    colliderAsset.Instance.AddComponent<NearInteractionGrabbable>();
-                }
-            }
-        }
     }
 }

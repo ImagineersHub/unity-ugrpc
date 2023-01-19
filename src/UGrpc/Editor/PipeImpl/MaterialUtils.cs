@@ -17,16 +17,5 @@ namespace UGrpc.Pipeline.GrpcPipe.V1
             materialAsset.SetTexture("_ChannelMap", channelTexture);
 
         }
-
-        public static void UpdateAlphaAndColor(string source, float alpha, string mainHexColor, string emissionHexColorStr, string rimHexColor)
-        {
-            var materialAsset = AssetDatabase.LoadAssetAtPath(source, typeof(Material)) as Material;
-
-            var mainColor = SRMaterialUtils.Inst.ConvertHexToColor(hexStr: mainHexColor);
-            var emissionColor = SRMaterialUtils.Inst.ConvertHexToColor(hexStr: emissionHexColorStr);
-            var rimColor = SRMaterialUtils.Inst.ConvertHexToColor(hexStr: rimHexColor);
-
-            SRMaterialUtils.Inst.UpdateAlphaAndColor(materialAsset, alpha, mainColor, emissionColor, rimColor);
-        }
     }
 }
