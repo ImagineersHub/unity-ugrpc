@@ -26,7 +26,7 @@ namespace UGrpc.Pipeline.GrpcPipe.V1
 
         private const int DEFAULT_PORT = 50061;
 
-        internal virtual int DefaultPort
+        public virtual int DefaultPort
         {
             get
             {

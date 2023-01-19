@@ -10,7 +10,6 @@ using Cysharp.Threading.Tasks;
 using Google.Protobuf;
 using UnityEditor;
 using UnityEngine;
-
 namespace UGrpc.Pipeline.GrpcPipe.V1
 {
     public class UGrpcPipeImpl : UGrpcPipe.UGrpcPipeBase
@@ -33,14 +32,14 @@ namespace UGrpc.Pipeline.GrpcPipe.V1
             public string data;
         }
 
-        internal Dictionary<string, System.Type> mAssembles = new Dictionary<string, System.Type>()
+        protected Dictionary<string, System.Type> mAssembles = new Dictionary<string, System.Type>()
         {
             {"UnityEngine.Application",typeof(Application)},
             {"UnityEditor.AssetDatabase",typeof(UnityEditor.AssetDatabase)},
             {"UnityEditor.SceneManagement.EditorSceneManager",typeof(UnityEditor.SceneManagement.EditorSceneManager)}
         };
 
-        internal virtual Dictionary<string, System.Type> AssemblesMappings
+        public virtual Dictionary<string, System.Type> AssemblesMappings
         {
             get
             {
@@ -97,7 +96,7 @@ namespace UGrpc.Pipeline.GrpcPipe.V1
         private async Task<object> CommandParserAsync(CommandParserParam cmdParam)
         {
             // Switch to main thread to allow asset manipulation through AssetDatabase
-            //await UniTask.SwitchToMainThread();
+            await UniTask.SwitchToMainThread();
 
             // Parse the module type from the module name (e.g., UnityEditor.AssetDatabase)
             var module = AssemblesMappings.GetValueOrDefault(cmdParam.type, typeof(EditorWindow));
